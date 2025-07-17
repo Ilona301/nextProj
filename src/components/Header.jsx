@@ -2,19 +2,30 @@
 
 import React from 'react';
 import {useTheme} from "@/Providers/ThemeContext";
+import Link from "next/link";
 
 const Header = () => {
     const {darkMode,toggleTheme} = useTheme();
     return (
         <div className="border-2 border-gray-400 min-h-[10vh] dark:border-amber-400">
-            Header
+            <Link href={`/`}>
+                Home
+            </Link>
+
+            <Link href={`/adduser`}>
+            Add user
+        </Link>
             <button
                 className="border border-black  p-1 rounded-lg"
                 onClick={toggleTheme}>
                 {darkMode === 'dark' ? (
-                    <i className="bi bi-moon-stars-fill text-[20px] text-[#6F1A07]" />
+                   <span>
+                       Light
+                   </span>
                 ) : (
-                    <i className="bi bi-brightness-high-fill text-[20px] text-[#6F1A07]" />
+                    <span>
+                        Dark
+                    </span>
                 )}
             </button>
 
